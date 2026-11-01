@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best-Selling Products — Cartalytics</title>
+  <meta name="description" content="Top products, category performance and monthly sales built from simulated retail Big Data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("eca-theme") || "light"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-logo"><i class="fa-solid fa-chart-pie"></i></div>
+    <div class="loader-bar"><span></span></div>
+    <p>Loading analytics</p>
+  </div>
+
+  <div class="bg-orbs" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+        <span>Cartalytics<small>Big Data Analytics</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="customers.html">Customers</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="basket-analysis.html">Market Basket</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- Page header -->
+    <section class="section" style="padding-bottom:1.5rem;">
+      <div class="container">
+        <span class="eyebrow">Module 02</span>
+        <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:0.6rem;">Best-Selling Products</h1>
+        <p class="text-muted" style="max-width:640px;">Rankings, revenue comparisons and category performance across 1,860 tracked SKUs. Search and sort the catalogue below.</p>
+      </div>
+    </section>
+
+    <!-- Toolbar + product grid -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="toolbar" data-aos="fade-up">
+          <label class="search-box" aria-label="Search products">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="productSearch" placeholder="Search by product or category…" />
+          </label>
+          <select class="select-box" id="productSort" aria-label="Sort products">
+            <option value="sold">Sort: Units sold</option>
+            <option value="revenue">Sort: Revenue</option>
+            <option value="rating">Sort: Rating</option>
+            <option value="name">Sort: Name A–Z</option>
+          </select>
+        </div>
+        <div class="grid grid-4" id="productGrid" data-aos="fade-up" data-aos-delay="80">
+          <!-- Product cards rendered by js/script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Top 10 table -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Leaderboard</span>
+          <h2>Top 10 products by revenue</h2>
+          <p>Cumulative figures for the last 12 months of simulated sales.</p>
+        </div>
+        <div class="table-wrap" data-aos="fade-up">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Product</th><th>Category</th><th>Units Sold</th><th>Revenue</th><th>Growth</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="mono">01</td><td><strong>Smartphone Pro 5G</strong></td><td>Electronics</td><td class="mono">2,110</td><td class="mono">$1.06M</td><td class="text-success mono">▲ 22%</td></tr>
+              <tr><td class="mono">02</td><td><strong>14″ Ultrabook Laptop</strong></td><td>Electronics</td><td class="mono">1,240</td><td class="mono">$868k</td><td class="text-success mono">▲ 15%</td></tr>
+              <tr><td class="mono">03</td><td><strong>Noise-Cancelling Earbuds</strong></td><td>Electronics</td><td class="mono">3,980</td><td class="mono">$199k</td><td class="text-success mono">▲ 31%</td></tr>
+              <tr><td class="mono">04</td><td><strong>Wireless Ergonomic Mouse</strong></td><td>Electronics</td><td class="mono">4,820</td><td class="mono">$120k</td><td class="text-success mono">▲ 12%</td></tr>
+              <tr><td class="mono">05</td><td><strong>Yoga Mat Pro Grip</strong></td><td>Fitness</td><td class="mono">2,960</td><td class="mono">$89k</td><td class="text-success mono">▲ 27%</td></tr>
+              <tr><td class="mono">06</td><td><strong>Cold Brew Coffee Beans</strong></td><td>Groceries</td><td class="mono">5,540</td><td class="mono">$66k</td><td class="text-success mono">▲ 18%</td></tr>
+              <tr><td class="mono">07</td><td><strong>Premium Assam Tea 500g</strong></td><td>Groceries</td><td class="mono">6,120</td><td class="mono">$43k</td><td class="text-success mono">▲ 9%</td></tr>
+              <tr><td class="mono">08</td><td><strong>Artisan Sourdough Bread</strong></td><td>Groceries</td><td class="mono">8,215</td><td class="mono">$33k</td><td class="text-success mono">▲ 14%</td></tr>
+              <tr><td class="mono">09</td><td><strong>Organic Whole Milk 1L</strong></td><td>Groceries</td><td class="mono">9,640</td><td class="mono">$29k</td><td class="text-success mono">▲ 7%</td></tr>
+              <tr><td class="mono">10</td><td><strong>Butter Croissant Pack</strong></td><td>Bakery</td><td class="mono">7,430</td><td class="mono">$22k</td><td class="text-danger mono">▼ 3%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Revenue comparison + category performance -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Revenue comparison</h3>
+            <span class="badge badge-blue">Top 5 products</span>
+          </div>
+          <div class="bar-row"><span class="bar-label">Smartphone</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-value">$1.06M</span></div>
+          <div class="bar-row"><span class="bar-label">Laptop</span><div class="bar-track"><div class="bar-fill" data-width="82"></div></div><span class="bar-value">$868k</span></div>
+          <div class="bar-row"><span class="bar-label">Earbuds</span><div class="bar-track"><div class="bar-fill" data-width="19"></div></div><span class="bar-value">$199k</span></div>
+          <div class="bar-row"><span class="bar-label">Mouse</span><div class="bar-track"><div class="bar-fill green" data-width="11"></div></div><span class="bar-value">$120k</span></div>
+          <div class="bar-row"><span class="bar-label">Yoga Mat</span><div class="bar-track"><div class="bar-fill green" data-width="8"></div></div><span class="bar-value">$89k</span></div>
+          <p class="text-muted" style="font-size:0.83rem;margin-top:1rem;"><i class="fa-solid fa-lightbulb" style="color:var(--warning);"></i> High-ticket electronics dominate revenue while groceries dominate order volume — a classic long-tail pattern.</p>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Category performance</h3>
+            <span class="badge badge-blue">Share of revenue</span>
+          </div>
+          <div class="donut-flex">
+            <div class="donut">
+              <svg viewBox="0 0 200 200" role="img" aria-label="Category revenue donut chart">
+                <circle cx="100" cy="100" r="74" stroke="var(--border)" />
+                <circle cx="100" cy="100" r="74" stroke="#2563EB" stroke-dasharray="177 465" stroke-dashoffset="0" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="74" stroke="#3B82F6" stroke-dasharray="125 465" stroke-dashoffset="-181" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="74" stroke="#93C5FD" stroke-dasharray="84 465" stroke-dashoffset="-310" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="74" stroke="#1E3A8A" stroke-dasharray="51 465" stroke-dashoffset="-398" stroke-linecap="round" />
+              </svg>
+              <div class="donut-center"><strong>$4.6M</strong><span>total</span></div>
+            </div>
+            <ul class="legend">
+              <li><span class="swatch" style="background:#2563EB;"></span> Electronics <span class="pct">38%</span></li>
+              <li><span class="swatch" style="background:#3B82F6;"></span> Groceries <span class="pct">27%</span></li>
+              <li><span class="swatch" style="background:#93C5FD;"></span> Fashion <span class="pct">18%</span></li>
+              <li><span class="swatch" style="background:#1E3A8A;"></span> Home &amp; Others <span class="pct">17%</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Monthly sales + trending -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Monthly units sold</h3>
+            <span class="badge badge-green"><i class="fa-solid fa-arrow-trend-up"></i> Festive peak in Nov</span>
+          </div>
+          <div class="columns" style="height:230px;">
+            <div class="col"><div class="col-bar" data-height="42"><span class="tip">8.1k</span></div><span>Jul</span></div>
+            <div class="col"><div class="col-bar" data-height="48"><span class="tip">9.3k</span></div><span>Aug</span></div>
+            <div class="col"><div class="col-bar" data-height="55"><span class="tip">10.6k</span></div><span>Sep</span></div>
+            <div class="col"><div class="col-bar" data-height="70"><span class="tip">13.5k</span></div><span>Oct</span></div>
+            <div class="col"><div class="col-bar" data-height="100"><span class="tip">19.2k</span></div><span>Nov</span></div>
+            <div class="col"><div class="col-bar" data-height="84"><span class="tip">16.1k</span></div><span>Dec</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Trending products</h3>
+            <span class="badge badge-amber"><i class="fa-solid fa-fire"></i> Fastest growth</span>
+          </div>
+          <ul class="insight-list">
+            <li><i class="fa-solid fa-headphones"></i><div><strong>Noise-Cancelling Earbuds <span class="badge badge-green" style="margin-left:0.4rem;">▲ 31%</span></strong><span>Attach-rate with new phones keeps climbing every month.</span></div></li>
+            <li><i class="fa-solid fa-person-praying"></i><div><strong>Yoga Mat Pro Grip <span class="badge badge-green" style="margin-left:0.4rem;">▲ 27%</span></strong><span>New-year fitness demand is arriving early this season.</span></div></li>
+            <li><i class="fa-solid fa-mobile-screen"></i><div><strong>Smartphone Pro 5G <span class="badge badge-green" style="margin-left:0.4rem;">▲ 22%</span></strong><span>Festival-season upgrades drive the highest-revenue SKU.</span></div></li>
+            <li><i class="fa-solid fa-mug-saucer"></i><div><strong>Cold Brew Coffee Beans <span class="badge badge-green" style="margin-left:0.4rem;">▲ 18%</span></strong><span>Work-from-home coffee culture shows no sign of slowing.</span></div></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:1rem;">
+          <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+          <span>Cartalytics<small>E-Commerce Customer Analytics</small></span>
+        </a>
+        <p>Cartalytics turns raw retail transactions into clear, actionable intelligence — customer analytics, product performance and Market Basket insights in a single dashboard.</p>
+        <div class="socials">
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="customers.html">Customer Analytics</a></li>
+          <li><a href="products.html">Best-Selling Products</a></li>
+          <li><a href="basket-analysis.html">Market Basket Analysis</a></li>
+          <li><a href="insights.html">Business Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="index.html">Cartalytics</a> BY : Umar Ahmed Siddiqui, Amaan Maniyar</li>
+          <li><i class="fa-solid fa-building-columns"></i> Dept. of Computer Science Engineering</li>
+          <li><i class="fa-solid fa-school"></i> MGMU SOET</li>
+          <li><a href="about.html">About the dataset</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Cartalytics · E-Commerce Customer Analytics Dashboard</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
