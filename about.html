@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About the Dataset — Cartalytics</title>
+  <meta name="description" content="About the Online Retail and Instacart datasets, project objectives, workflow and future enhancements." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("eca-theme") || "light"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-logo"><i class="fa-solid fa-chart-pie"></i></div>
+    <div class="loader-bar"><span></span></div>
+    <p>Loading analytics</p>
+  </div>
+
+  <div class="bg-orbs" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+        <span>Cartalytics<small>Big Data Analytics</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="customers.html">Customers</a>
+        <a href="products.html">Products</a>
+        <a href="basket-analysis.html">Market Basket</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html" class="active">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- Intro -->
+    <section class="section" style="padding-bottom:2rem;">
+      <div class="container">
+        <span class="eyebrow">Project background</span>
+        <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:0.6rem;">About the Dataset &amp; Project</h1>
+        <p class="text-muted" style="max-width:720px;">Every number in this dashboard is <strong style="color:var(--text);">simulated</strong> for education. The structure and behaviour of the data, however, are modelled on two of the most famous public retail datasets used in Big Data research.</p>
+      </div>
+    </section>
+
+    <!-- Dataset cards -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3><i class="fa-solid fa-store" style="color:var(--primary);margin-right:0.5rem;"></i>Online Retail Dataset</h3>
+            <span class="badge badge-blue">UCI ML Repository</span>
+          </div>
+          <p>A transactional dataset from a UK-based online gift retailer, covering invoices between 2010 and 2011. It's a staple for teaching customer segmentation and RFM analysis.</p>
+          <ul class="insight-list" style="margin-top:1rem;">
+            <li><i class="fa-solid fa-file-invoice"></i><div><strong>~541,000 transactions</strong><span>each row is a product line on an invoice.</span></div></li>
+            <li><i class="fa-solid fa-globe"></i><div><strong>38 countries</strong><span>which inspired this project's geography module.</span></div></li>
+            <li><i class="fa-solid fa-table-columns"></i><div><strong>8 columns</strong><span>InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country.</span></div></li>
+          </ul>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3><i class="fa-solid fa-carrot" style="color:var(--primary);margin-right:0.5rem;"></i>Instacart Dataset</h3>
+            <span class="badge badge-blue">Kaggle</span>
+          </div>
+          <p>Over 3 million grocery orders from 200,000 anonymised Instacart users. It's the classic dataset for Market Basket Analysis and reorder prediction.</p>
+          <ul class="insight-list" style="margin-top:1rem;">
+            <li><i class="fa-solid fa-cart-shopping"></i><div><strong>3.4M orders · 50k products</strong><span>rich enough to mine reliable association rules.</span></div></li>
+            <li><i class="fa-solid fa-rotate-left"></i><div><strong>Reorder behaviour</strong><span>which shaped this project's weekly-shopping-frequency patterns.</span></div></li>
+            <li><i class="fa-solid fa-diagram-project"></i><div><strong>Aisle &amp; department graph</strong><span>the inspiration for the product relationship network view.</span></div></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Objectives + importance -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head"><h3>Project objectives</h3><span class="badge badge-blue">Goals</span></div>
+          <ul class="insight-list">
+            <li><i class="fa-solid fa-circle-check"></i><div><strong>Visualise customer behaviour</strong><span>segmentation, retention, frequency and geography.</span></div></li>
+            <li><i class="fa-solid fa-circle-check"></i><div><strong>Identify best-selling products</strong><span>by units, revenue, category and growth.</span></div></li>
+            <li><i class="fa-solid fa-circle-check"></i><div><strong>Demonstrate Market Basket Analysis</strong><span>with support, confidence and lift explained simply.</span></div></li>
+            <li><i class="fa-solid fa-circle-check"></i><div><strong>Convert data into decisions</strong><span>stock, bundles, retention and marketing actions.</span></div></li>
+            <li><i class="fa-solid fa-circle-check"></i><div><strong>Prove frontend craft</strong><span>a premium dashboard with zero frameworks or chart libraries.</span></div></li>
+          </ul>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head"><h3>What the platform delivers</h3><span class="badge badge-blue">Capabilities</span></div>
+          <ul class="insight-list">
+            <li><i class="fa-solid fa-users"></i><div><strong>Customer Analytics</strong><span>segments, retention, frequency, geography and activity trends.</span></div></li>
+            <li><i class="fa-solid fa-box-open"></i><div><strong>Product Intelligence</strong><span>rankings, category performance, monthly sales and trending items.</span></div></li>
+            <li><i class="fa-solid fa-cart-shopping"></i><div><strong>Market Basket Analysis</strong><span>association rules, bundle suggestions and a live recommendation engine.</span></div></li>
+            <li><i class="fa-solid fa-lightbulb"></i><div><strong>Business Insights</strong><span>an executive summary with stock, bundle, retention and marketing actions.</span></div></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">How it was built</span>
+          <h2>Project workflow</h2>
+          <p>The same pipeline a real analytics team would follow, scaled to a frontend project.</p>
+        </div>
+        <div class="step-flow" data-aos="fade-up">
+          <div class="step"><h4>Study datasets</h4><p>Explore the Online Retail &amp; Instacart schemas and patterns.</p></div>
+          <div class="step"><h4>Simulate data</h4><p>Craft realistic sample metrics that mirror those patterns.</p></div>
+          <div class="step"><h4>Design UI</h4><p>Wireframe a SaaS-grade layout, palette and type system.</p></div>
+          <div class="step"><h4>Build charts</h4><p>Hand-code every chart in CSS and SVG — no libraries.</p></div>
+          <div class="step"><h4>Add interaction</h4><p>Counters, theme, search, sorting and the basket engine in vanilla JS.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future enhancements -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Roadmap</span>
+          <h2>Future enhancements</h2>
+        </div>
+        <div class="grid grid-3">
+          <article class="card" data-aos="fade-up">
+            <span class="icon-chip" style="margin-bottom:1rem;"><i class="fa-solid fa-plug"></i></span>
+            <h3>Live data ingestion</h3>
+            <p>Connect the UI to a real backend API and stream genuine transactions instead of static samples.</p>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="80">
+            <span class="icon-chip green" style="margin-bottom:1rem;"><i class="fa-solid fa-brain"></i></span>
+            <h3>Apriori in the browser</h3>
+            <p>Run the actual Apriori algorithm on an uploaded CSV so rules are mined live rather than pre-computed.</p>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="160">
+            <span class="icon-chip amber" style="margin-bottom:1rem;"><i class="fa-solid fa-file-export"></i></span>
+            <h3>Report export</h3>
+            <p>One-click PDF export of the executive summary for stakeholders who live outside the dashboard.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:1rem;">
+          <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+          <span>Cartalytics<small>E-Commerce Customer Analytics</small></span>
+        </a>
+        <p>Cartalytics turns raw retail transactions into clear, actionable intelligence — customer analytics, product performance and Market Basket insights in a single dashboard.</p>
+        <div class="socials">
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="customers.html">Customer Analytics</a></li>
+          <li><a href="products.html">Best-Selling Products</a></li>
+          <li><a href="basket-analysis.html">Market Basket Analysis</a></li>
+          <li><a href="insights.html">Business Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="index.html">Cartalytics</a> BY : Umar Ahmed Siddiqui, Amaan Maniyar</li>
+          <li><i class="fa-solid fa-building-columns"></i> Dept. of Computer Science Engineering</li>
+          <li><i class="fa-solid fa-school"></i> MGMU SOET</li>
+          <li><a href="about.html">About the dataset</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Cartalytics · E-Commerce Customer Analytics Dashboard</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

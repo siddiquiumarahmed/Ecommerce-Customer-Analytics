@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartalytics — E-Commerce Customer Analytics Dashboard</title>
+  <meta name="description" content="Big Data analytics dashboard demonstrating customer behaviour, best-selling products and Market Basket Analysis using simulated retail data." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    /* Apply saved theme before paint to avoid a flash */
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("eca-theme") || "light"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div class="loader" id="loader">
+    <div class="loader-logo"><i class="fa-solid fa-chart-pie"></i></div>
+    <div class="loader-bar"><span></span></div>
+    <p>Loading analytics</p>
+  </div>
+
+  <div class="bg-orbs" aria-hidden="true"></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+        <span>Cartalytics<small>Big Data Analytics</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="customers.html">Customers</a>
+        <a href="products.html">Products</a>
+        <a href="basket-analysis.html">Market Basket</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Turn raw retail data into <span class="gradient-text">customer intelligence</span></h1>
+          <p class="lead">
+            Cartalytics simulates how modern e-commerce teams analyse millions of transactions
+            to understand shopper behaviour, surface best-selling products and discover
+            what customers buy together.
+          </p>
+          <div class="hero-cta">
+            <a href="customers.html" class="btn btn-primary"><i class="fa-solid fa-gauge-high"></i> Explore Dashboard</a>
+            <a href="products.html" class="btn btn-ghost"><i class="fa-solid fa-box-open"></i> View Products</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>540k+</strong><span>Transactions</span></div>
+            <div><strong>38</strong><span>Countries</span></div>
+            <div><strong>12 mo</strong><span>Sales Window</span></div>
+          </div>
+        </div>
+
+        <!-- Floating glass dashboard preview -->
+        <div class="hero-visual" data-aos="fade-left">
+          <div class="glass-panel float-slow">
+            <div class="card-head">
+              <h3>Revenue overview</h3>
+              <span class="badge badge-green"><i class="fa-solid fa-arrow-trend-up"></i> +18.2%</span>
+            </div>
+            <svg class="chart-svg" viewBox="0 0 420 180" role="img" aria-label="Monthly revenue trend line chart">
+              <defs>
+                <linearGradient id="heroArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#2563EB" stop-opacity="0.28" />
+                  <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <line class="grid-line" x1="0" y1="45" x2="420" y2="45" />
+              <line class="grid-line" x1="0" y1="90" x2="420" y2="90" />
+              <line class="grid-line" x1="0" y1="135" x2="420" y2="135" />
+              <path fill="url(#heroArea)" d="M10,140 L70,120 L130,128 L190,92 L250,100 L310,60 L410,34 L410,180 L10,180 Z" />
+              <path class="line-path" d="M10,140 L70,120 L130,128 L190,92 L250,100 L310,60 L410,34" />
+              <circle class="dot" cx="410" cy="34" r="5" />
+            </svg>
+            <div class="grid grid-2" style="margin-top:1.2rem;">
+              <div>
+                <p class="text-muted" style="font-size:0.78rem;">This quarter</p>
+                <p class="mono" style="font-weight:700;font-size:1.2rem;">$1.28M</p>
+              </div>
+              <div>
+                <p class="text-muted" style="font-size:0.78rem;">Repeat buyers</p>
+                <p class="mono" style="font-weight:700;font-size:1.2rem;">64.8%</p>
+              </div>
+            </div>
+          </div>
+          <div class="mini-stat pos-tl float-fast">
+            <span class="icon-chip green" style="width:38px;height:38px;font-size:0.9rem;"><i class="fa-solid fa-cart-shopping"></i></span>
+            <div><strong>1,284 orders</strong><span>in the last 24 hours</span></div>
+          </div>
+          <div class="mini-stat pos-br float-fast">
+            <span class="icon-chip" style="width:38px;height:38px;font-size:0.9rem;"><i class="fa-solid fa-users"></i></span>
+            <div><strong>312 new customers</strong><span>this week</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KPI CARDS ================= -->
+    <section class="section" style="padding-top:1.5rem;">
+      <div class="container">
+        <div class="grid grid-4">
+          <article class="card kpi-card" data-aos="fade-up">
+            <div class="kpi-top">
+              <div>
+                <p class="kpi-value" data-count="48250">0</p>
+                <p class="kpi-label">Total Customers</p>
+              </div>
+              <span class="icon-chip"><i class="fa-solid fa-users"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 12.4% vs last quarter</span>
+            <div class="kpi-spark">
+              <svg viewBox="0 0 120 42"><path d="M2,34 L20,28 L38,31 L56,20 L74,24 L92,12 L118,6" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+          </article>
+
+          <article class="card kpi-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="kpi-top">
+              <div>
+                <p class="kpi-value" data-count="1860">0</p>
+                <p class="kpi-label">Products Tracked</p>
+              </div>
+              <span class="icon-chip green"><i class="fa-solid fa-box"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 96 new SKUs added</span>
+            <div class="kpi-spark">
+              <svg viewBox="0 0 120 42"><path d="M2,30 L20,32 L38,24 L56,26 L74,16 L92,18 L118,8" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+          </article>
+
+          <article class="card kpi-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="kpi-top">
+              <div>
+                <p class="kpi-value" data-count="4.6" data-decimals="1" data-prefix="$" data-suffix="M">0</p>
+                <p class="kpi-label">Annual Revenue</p>
+              </div>
+              <span class="icon-chip amber"><i class="fa-solid fa-sack-dollar"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 18.2% year over year</span>
+            <div class="kpi-spark">
+              <svg viewBox="0 0 120 42"><path d="M2,36 L20,30 L38,32 L56,22 L74,25 L92,14 L118,5" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+          </article>
+
+          <article class="card kpi-card" data-aos="fade-up" data-aos-delay="240">
+            <div class="kpi-top">
+              <div>
+                <p class="kpi-value" data-count="129480">0</p>
+                <p class="kpi-label">Orders Processed</p>
+              </div>
+              <span class="icon-chip navy"><i class="fa-solid fa-cart-shopping"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 9.7% vs last quarter</span>
+            <div class="kpi-spark">
+              <svg viewBox="0 0 120 42"><path d="M2,32 L20,26 L38,29 L56,18 L74,22 L92,15 L118,9" fill="none" stroke="#1E3A8A" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">What this project covers</span>
+          <h2>Three analytics modules, one dashboard</h2>
+          <p>Each module mirrors a real Big Data workflow used by e-commerce companies, powered here by realistic simulated data.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card" data-aos="fade-up">
+            <span class="icon-chip" style="margin-bottom:1rem;"><i class="fa-solid fa-user-group"></i></span>
+            <h3>Customer Analytics</h3>
+            <p>Segment shoppers, measure retention and satisfaction, and follow purchase behaviour across regions and time.</p>
+            <a href="customers.html" class="btn btn-ghost" style="margin-top:1.2rem;padding:0.55rem 1.1rem;font-size:0.85rem;">Open module <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <span class="icon-chip green" style="margin-bottom:1rem;"><i class="fa-solid fa-ranking-star"></i></span>
+            <h3>Best-Selling Products</h3>
+            <p>Rank products by units and revenue, compare categories, and spot trending items before they peak.</p>
+            <a href="products.html" class="btn btn-ghost" style="margin-top:1.2rem;padding:0.55rem 1.1rem;font-size:0.85rem;">Open module <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <span class="icon-chip amber" style="margin-bottom:1rem;"><i class="fa-solid fa-basket-shopping"></i></span>
+            <h3>Market Basket Analysis</h3>
+            <p>Discover which products are bought together using association rules — support, confidence and lift.</p>
+            <a href="basket-analysis.html" class="btn btn-ghost" style="margin-top:1.2rem;padding:0.55rem 1.1rem;font-size:0.85rem;">Open module <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= QUICK ANALYTICS PREVIEW ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Quick preview</span>
+          <h2>Latest trends at a glance</h2>
+          <p>A snapshot of the simulated dataset. Open each module for the full breakdown.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card" data-aos="fade-up">
+            <div class="card-head">
+              <h3>Weekly orders</h3>
+              <span class="badge badge-blue">Last 7 days</span>
+            </div>
+            <div class="columns">
+              <div class="col"><div class="col-bar" data-height="52"><span class="tip">2,940</span></div><span>Mon</span></div>
+              <div class="col"><div class="col-bar" data-height="64"><span class="tip">3,610</span></div><span>Tue</span></div>
+              <div class="col"><div class="col-bar" data-height="58"><span class="tip">3,270</span></div><span>Wed</span></div>
+              <div class="col"><div class="col-bar" data-height="72"><span class="tip">4,060</span></div><span>Thu</span></div>
+              <div class="col"><div class="col-bar" data-height="86"><span class="tip">4,850</span></div><span>Fri</span></div>
+              <div class="col"><div class="col-bar" data-height="100"><span class="tip">5,640</span></div><span>Sat</span></div>
+              <div class="col"><div class="col-bar" data-height="78"><span class="tip">4,400</span></div><span>Sun</span></div>
+            </div>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-head">
+              <h3>Top categories by revenue share</h3>
+              <span class="badge badge-blue">FY 2025–26</span>
+            </div>
+            <div class="bar-row"><span class="bar-label">Electronics</span><div class="bar-track"><div class="bar-fill" data-width="88"></div></div><span class="bar-value">38%</span></div>
+            <div class="bar-row"><span class="bar-label">Groceries</span><div class="bar-track"><div class="bar-fill" data-width="64"></div></div><span class="bar-value">27%</span></div>
+            <div class="bar-row"><span class="bar-label">Fashion</span><div class="bar-track"><div class="bar-fill green" data-width="42"></div></div><span class="bar-value">18%</span></div>
+            <div class="bar-row"><span class="bar-label">Home &amp; Living</span><div class="bar-track"><div class="bar-fill green" data-width="26"></div></div><span class="bar-value">11%</span></div>
+            <div class="bar-row"><span class="bar-label">Others</span><div class="bar-track"><div class="bar-fill amber" data-width="14"></div></div><span class="bar-value">6%</span></div>
+            <p class="text-muted" style="font-size:0.82rem;margin-top:1rem;"><i class="fa-solid fa-lightbulb" style="color:var(--warning);"></i> Electronics and Groceries together account for nearly two-thirds of revenue.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:1rem;">
+          <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+          <span>Cartalytics<small>E-Commerce Customer Analytics</small></span>
+        </a>
+        <p>Cartalytics turns raw retail transactions into clear, actionable intelligence — customer analytics, product performance and Market Basket insights in a single dashboard.</p>
+        <div class="socials">
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="customers.html">Customer Analytics</a></li>
+          <li><a href="products.html">Best-Selling Products</a></li>
+          <li><a href="basket-analysis.html">Market Basket Analysis</a></li>
+          <li><a href="insights.html">Business Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="index.html">Cartalytics</a> BY : Umar Ahmed Siddiqui, Amaan Maniyar</li>
+          <li><i class="fa-solid fa-building-columns"></i> Dept. of Computer Science Engineering</li>
+          <li><i class="fa-solid fa-school"></i> MGMU SOET</li>
+          <li><a href="about.html">About the dataset</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Cartalytics · E-Commerce Customer Analytics Dashboard</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

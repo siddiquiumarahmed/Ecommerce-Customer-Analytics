@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Insights — Cartalytics</title>
+  <meta name="description" content="Executive summary, sales trends, peak shopping hours, loyal customers and data-driven recommendations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("eca-theme") || "light"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-logo"><i class="fa-solid fa-chart-pie"></i></div>
+    <div class="loader-bar"><span></span></div>
+    <p>Loading analytics</p>
+  </div>
+
+  <div class="bg-orbs" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+        <span>Cartalytics<small>Big Data Analytics</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="customers.html">Customers</a>
+        <a href="products.html">Products</a>
+        <a href="basket-analysis.html">Market Basket</a>
+        <a href="insights.html" class="active">Insights</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- Executive summary -->
+    <section class="section" style="padding-bottom:2rem;">
+      <div class="container">
+        <span class="eyebrow">Module 04</span>
+        <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:0.6rem;">Business Insights</h1>
+        <p class="text-muted" style="max-width:720px;">
+          <strong style="color:var(--text);">Executive summary:</strong> the simulated store generated <strong style="color:var(--text);">$4.6M in annual revenue</strong> from 129,480 orders, growing 18.2% year over year. Growth is driven by returning customers (64.8% of the base), festive-season electronics, and a weekly grocery habit. The clearest opportunities are bundle offers from the basket rules, retention campaigns for the 16% at-risk segment, and stocking up on the four fastest-trending SKUs before the next peak.
+        </p>
+      </div>
+    </section>
+
+    <!-- Business KPIs -->
+    <section class="section" style="padding-top:0;padding-bottom:2rem;">
+      <div class="container grid grid-4">
+        <article class="card kpi-card" data-aos="fade-up">
+          <div class="kpi-top">
+            <div><p class="kpi-value" data-count="4.6" data-decimals="1" data-prefix="$" data-suffix="M">0</p><p class="kpi-label">Annual Revenue</p></div>
+            <span class="icon-chip"><i class="fa-solid fa-sack-dollar"></i></span>
+          </div>
+          <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> +18.2% YoY</span>
+        </article>
+        <article class="card kpi-card" data-aos="fade-up" data-aos-delay="60">
+          <div class="kpi-top">
+            <div><p class="kpi-value" data-count="86.40" data-decimals="2" data-prefix="$">0</p><p class="kpi-label">Avg. Order Value</p></div>
+            <span class="icon-chip green"><i class="fa-solid fa-receipt"></i></span>
+          </div>
+          <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> +$6.10 YoY</span>
+        </article>
+        <article class="card kpi-card" data-aos="fade-up" data-aos-delay="120">
+          <div class="kpi-top">
+            <div><p class="kpi-value" data-count="2.9" data-decimals="1" data-suffix="%">0</p><p class="kpi-label">Cart Abandonment Δ</p></div>
+            <span class="icon-chip amber"><i class="fa-solid fa-cart-arrow-down"></i></span>
+          </div>
+          <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-down"></i> Abandonment reduced</span>
+        </article>
+        <article class="card kpi-card" data-aos="fade-up" data-aos-delay="180">
+          <div class="kpi-top">
+            <div><p class="kpi-value" data-count="620" data-prefix="$">0</p><p class="kpi-label">Avg. Customer LTV</p></div>
+            <span class="icon-chip navy"><i class="fa-solid fa-gem"></i></span>
+          </div>
+          <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> +9.4% YoY</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Revenue insights + top categories -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Revenue trend</h3>
+            <span class="badge badge-green"><i class="fa-solid fa-arrow-trend-up"></i> 12-month view</span>
+          </div>
+          <svg class="chart-svg" viewBox="0 0 460 220" role="img" aria-label="Twelve month revenue trend">
+            <defs>
+              <linearGradient id="revArea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <line class="grid-line" x1="34" y1="40" x2="450" y2="40" /><text class="axis-label" x="0" y="44">$600k</text>
+            <line class="grid-line" x1="34" y1="95" x2="450" y2="95" /><text class="axis-label" x="0" y="99">$400k</text>
+            <line class="grid-line" x1="34" y1="150" x2="450" y2="150" /><text class="axis-label" x="0" y="154">$200k</text>
+            <path fill="url(#revArea)" d="M44,172 L112,160 L180,164 L248,138 L316,120 L384,58 L446,86 L446,220 L44,220 Z" />
+            <path class="line-path" d="M44,172 L112,160 L180,164 L248,138 L316,120 L384,58 L446,86" />
+            <circle class="dot" cx="384" cy="58" r="5" />
+            <text class="axis-label" x="40" y="212">Jan</text>
+            <text class="axis-label" x="108" y="212">Mar</text>
+            <text class="axis-label" x="176" y="212">May</text>
+            <text class="axis-label" x="244" y="212">Jul</text>
+            <text class="axis-label" x="312" y="212">Sep</text>
+            <text class="axis-label" x="378" y="212">Nov</text>
+            <text class="axis-label" x="436" y="212">Dec</text>
+          </svg>
+          <p class="text-muted" style="font-size:0.83rem;margin-top:0.8rem;">November's festive spike delivered $612k — the single biggest month — followed by a healthy December plateau.</p>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Top categories &amp; customer insights</h3>
+            <span class="badge badge-blue">Highlights</span>
+          </div>
+          <div class="bar-row"><span class="bar-label">Electronics</span><div class="bar-track"><div class="bar-fill" data-width="88"></div></div><span class="bar-value">$1.75M</span></div>
+          <div class="bar-row"><span class="bar-label">Groceries</span><div class="bar-track"><div class="bar-fill" data-width="63"></div></div><span class="bar-value">$1.24M</span></div>
+          <div class="bar-row"><span class="bar-label">Fashion</span><div class="bar-track"><div class="bar-fill green" data-width="42"></div></div><span class="bar-value">$828k</span></div>
+          <div class="bar-row"><span class="bar-label">Home &amp; Living</span><div class="bar-track"><div class="bar-fill amber" data-width="26"></div></div><span class="bar-value">$506k</span></div>
+          <ul class="insight-list" style="margin-top:1rem;">
+            <li><i class="fa-solid fa-rotate-left"></i><div><strong>Returning customers drive 71% of revenue</strong><span>despite being 64.8% of the base — loyalty pays.</span></div></li>
+            <li><i class="fa-solid fa-mobile-screen"></i><div><strong>Mobile is the majority channel</strong><span>67% of orders now arrive from the app.</span></div></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Peak hours heatmap + loyal customers -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Peak shopping hours</h3>
+            <span class="badge badge-blue">Orders by hour</span>
+          </div>
+          <div class="heatmap">
+            <div class="heat-cell" style="--h:0.08" data-tip="12am · 0.9k"></div>
+            <div class="heat-cell" style="--h:0.05" data-tip="2am · 0.5k"></div>
+            <div class="heat-cell" style="--h:0.06" data-tip="4am · 0.6k"></div>
+            <div class="heat-cell" style="--h:0.14" data-tip="6am · 1.6k"></div>
+            <div class="heat-cell" style="--h:0.32" data-tip="8am · 3.7k"></div>
+            <div class="heat-cell" style="--h:0.48" data-tip="10am · 5.5k"></div>
+            <div class="heat-cell" style="--h:0.55" data-tip="12pm · 6.3k"></div>
+            <div class="heat-cell" style="--h:0.42" data-tip="2pm · 4.8k"></div>
+            <div class="heat-cell" style="--h:0.50" data-tip="4pm · 5.8k"></div>
+            <div class="heat-cell" style="--h:0.72" data-tip="6pm · 8.3k"></div>
+            <div class="heat-cell" style="--h:1" data-tip="8pm · 11.5k"></div>
+            <div class="heat-cell" style="--h:0.62" data-tip="10pm · 7.1k"></div>
+          </div>
+          <div class="heat-scale">
+            <span>Fewer orders</span>
+            <div class="cells">
+              <i style="background:rgba(37,99,235,0.12);"></i>
+              <i style="background:rgba(37,99,235,0.35);"></i>
+              <i style="background:rgba(37,99,235,0.6);"></i>
+              <i style="background:rgba(37,99,235,0.95);"></i>
+            </div>
+            <span>More orders</span>
+          </div>
+          <p class="text-muted" style="font-size:0.83rem;margin-top:1rem;"><i class="fa-solid fa-clock" style="color:var(--primary);"></i> 8–10 PM is the golden window — the ideal slot for flash sales and push notifications.</p>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Most loyal customers</h3>
+            <span class="badge badge-blue">By lifetime value</span>
+          </div>
+          <div class="table-wrap" style="border:none;">
+            <table style="min-width:0;">
+              <thead><tr><th>Customer</th><th>Orders</th><th>LTV</th></tr></thead>
+              <tbody>
+                <tr><td><div class="cell-user"><span class="avatar">RM</span><strong>Rohan Mehta</strong></div></td><td class="mono">86</td><td class="mono">$7,940</td></tr>
+                <tr><td><div class="cell-user"><span class="avatar alt">SO</span><strong>Sophie O'Neill</strong></div></td><td class="mono">74</td><td class="mono">$6,820</td></tr>
+                <tr><td><div class="cell-user"><span class="avatar alt2">DK</span><strong>Daniel Kim</strong></div></td><td class="mono">69</td><td class="mono">$6,110</td></tr>
+                <tr><td><div class="cell-user"><span class="avatar">AI</span><strong>Ananya Iyer</strong></div></td><td class="mono">63</td><td class="mono">$5,730</td></tr>
+                <tr><td><div class="cell-user"><span class="avatar alt">MS</span><strong>Marta Silva</strong></div></td><td class="mono">58</td><td class="mono">$5,240</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Data-driven actions</span>
+          <h2>Recommendations</h2>
+          <p>Four moves the data supports right now.</p>
+        </div>
+        <div class="grid grid-4">
+          <article class="card" data-aos="fade-up">
+            <span class="icon-chip" style="margin-bottom:1rem;"><i class="fa-solid fa-boxes-stacked"></i></span>
+            <h3>Increase stock</h3>
+            <p>Earbuds and yoga mats are trending at +31% and +27% — restock before the next festive peak to avoid lost sales.</p>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="60">
+            <span class="icon-chip green" style="margin-bottom:1rem;"><i class="fa-solid fa-gift"></i></span>
+            <h3>Bundle offers</h3>
+            <p>Launch the Breakfast, Workspace and Chai-Time bundles built from the strongest association rules.</p>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="120">
+            <span class="icon-chip amber" style="margin-bottom:1rem;"><i class="fa-solid fa-heart"></i></span>
+            <h3>Customer retention</h3>
+            <p>Win back the 16% at-risk segment with personalised "we miss you" coupons before they churn for good.</p>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="180">
+            <span class="icon-chip navy" style="margin-bottom:1rem;"><i class="fa-solid fa-bullhorn"></i></span>
+            <h3>Targeted marketing</h3>
+            <p>Schedule campaigns for the 8–10 PM window and weekend mornings, when conversion rates peak.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future scope -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Where this goes next</span>
+          <h2>Future scope</h2>
+          <p>How this dashboard would evolve into a production Big Data platform.</p>
+        </div>
+        <div class="step-flow" data-aos="fade-up">
+          <div class="step"><h4>Machine Learning</h4><p>Cluster customers automatically instead of fixed RFM buckets.</p></div>
+          <div class="step"><h4>AI Recommendations</h4><p>Replace static rules with a collaborative-filtering engine.</p></div>
+          <div class="step"><h4>Real-Time Analytics</h4><p>Stream orders through Kafka + Spark for live dashboards.</p></div>
+          <div class="step"><h4>Cloud Computing</h4><p>Scale storage and compute elastically on cloud data lakes.</p></div>
+          <div class="step"><h4>Predictive Analytics</h4><p>Forecast demand and churn weeks before they happen.</p></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:1rem;">
+          <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+          <span>Cartalytics<small>E-Commerce Customer Analytics</small></span>
+        </a>
+        <p>Cartalytics turns raw retail transactions into clear, actionable intelligence — customer analytics, product performance and Market Basket insights in a single dashboard.</p>
+        <div class="socials">
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="customers.html">Customer Analytics</a></li>
+          <li><a href="products.html">Best-Selling Products</a></li>
+          <li><a href="basket-analysis.html">Market Basket Analysis</a></li>
+          <li><a href="insights.html">Business Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="index.html">Cartalytics</a> BY : Umar Ahmed Siddiqui, Amaan Maniyar</li>
+          <li><i class="fa-solid fa-building-columns"></i> Dept. of Computer Science Engineering</li>
+          <li><i class="fa-solid fa-school"></i> MGMU SOET</li>
+          <li><a href="about.html">About the dataset</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Cartalytics · E-Commerce Customer Analytics Dashboard</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

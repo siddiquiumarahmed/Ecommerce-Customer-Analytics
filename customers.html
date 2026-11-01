@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Analytics — Cartalytics</title>
+  <meta name="description" content="Customer segmentation, behaviour, retention and geographic distribution built from simulated Big Data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("eca-theme") || "light"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-logo"><i class="fa-solid fa-chart-pie"></i></div>
+    <div class="loader-bar"><span></span></div>
+    <p>Loading analytics</p>
+  </div>
+
+  <div class="bg-orbs" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+        <span>Cartalytics<small>Big Data Analytics</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="customers.html" class="active">Customers</a>
+        <a href="products.html">Products</a>
+        <a href="basket-analysis.html">Market Basket</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- Page header -->
+    <section class="section" style="padding-bottom:1.5rem;">
+      <div class="container">
+        <span class="eyebrow">Module 01</span>
+        <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:0.6rem;">Customer Analytics</h1>
+        <p class="text-muted" style="max-width:640px;">Who buys, how often, and why they come back. Every metric below is computed from the simulated transaction log of 48,250 customers across 38 countries.</p>
+      </div>
+    </section>
+
+    <!-- KPI row -->
+    <section class="section" style="padding-top:0;padding-bottom:2rem;">
+      <div class="container">
+        <div class="grid grid-3">
+          <article class="card kpi-card" data-aos="fade-up">
+            <div class="kpi-top">
+              <div><p class="kpi-value" data-count="48250">0</p><p class="kpi-label">Total Customers</p></div>
+              <span class="icon-chip"><i class="fa-solid fa-users"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 12.4% growth</span>
+          </article>
+          <article class="card kpi-card" data-aos="fade-up" data-aos-delay="60">
+            <div class="kpi-top">
+              <div><p class="kpi-value" data-count="31280">0</p><p class="kpi-label">Returning Customers</p></div>
+              <span class="icon-chip green"><i class="fa-solid fa-rotate-left"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 64.8% of the base</span>
+          </article>
+          <article class="card kpi-card" data-aos="fade-up" data-aos-delay="120">
+            <div class="kpi-top">
+              <div><p class="kpi-value" data-count="16970">0</p><p class="kpi-label">New Customers</p></div>
+              <span class="icon-chip amber"><i class="fa-solid fa-user-plus"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 4,120 this quarter</span>
+          </article>
+          <article class="card kpi-card" data-aos="fade-up">
+            <div class="kpi-top">
+              <div><p class="kpi-value" data-count="4.6" data-decimals="1" data-suffix=" / 5">0</p><p class="kpi-label">Customer Satisfaction</p></div>
+              <span class="icon-chip"><i class="fa-solid fa-face-smile"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> +0.3 vs last year</span>
+          </article>
+          <article class="card kpi-card" data-aos="fade-up" data-aos-delay="60">
+            <div class="kpi-top">
+              <div><p class="kpi-value" data-count="86.40" data-decimals="2" data-prefix="$">0</p><p class="kpi-label">Average Order Value</p></div>
+              <span class="icon-chip green"><i class="fa-solid fa-receipt"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> +$6.10 vs last year</span>
+          </article>
+          <article class="card kpi-card" data-aos="fade-up" data-aos-delay="120">
+            <div class="kpi-top">
+              <div><p class="kpi-value" data-count="78" data-suffix="%">0</p><p class="kpi-label">Customer Retention</p></div>
+              <span class="icon-chip navy"><i class="fa-solid fa-heart"></i></span>
+            </div>
+            <span class="kpi-trend text-success"><i class="fa-solid fa-arrow-up"></i> 5 pts above industry avg.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Segmentation + behaviour rings -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Customer segmentation</h3>
+            <span class="badge badge-blue">RFM model</span>
+          </div>
+          <div class="donut-flex">
+            <div class="donut">
+              <svg viewBox="0 0 200 200" role="img" aria-label="Customer segmentation donut chart">
+                <!-- r=74 → circumference ≈ 465 -->
+                <circle cx="100" cy="100" r="74" stroke="var(--border)" />
+                <circle cx="100" cy="100" r="74" stroke="#2563EB" stroke-dasharray="158 465" stroke-dashoffset="0" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="74" stroke="#3B82F6" stroke-dasharray="121 465" stroke-dashoffset="-162" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="74" stroke="#93C5FD" stroke-dasharray="93 465" stroke-dashoffset="-287" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="74" stroke="#1E3A8A" stroke-dasharray="74 465" stroke-dashoffset="-384" stroke-linecap="round" />
+              </svg>
+              <div class="donut-center"><strong>48.2k</strong><span>customers</span></div>
+            </div>
+            <ul class="legend">
+              <li><span class="swatch" style="background:#2563EB;"></span> Loyal champions <span class="pct">34%</span></li>
+              <li><span class="swatch" style="background:#3B82F6;"></span> Regular buyers <span class="pct">26%</span></li>
+              <li><span class="swatch" style="background:#93C5FD;"></span> Occasional shoppers <span class="pct">20%</span></li>
+              <li><span class="swatch" style="background:#1E3A8A;"></span> At-risk / dormant <span class="pct">16%</span></li>
+            </ul>
+          </div>
+          <p class="text-muted" style="font-size:0.84rem;margin-top:1.2rem;">Segments follow the Recency–Frequency–Monetary approach used in real retail Big Data pipelines. The remaining 4% are brand-new signups not yet scored.</p>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Customer behaviour</h3>
+            <span class="badge badge-blue">Engagement</span>
+          </div>
+          <svg width="0" height="0" aria-hidden="true">
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#3B82F6" />
+                <stop offset="100%" stop-color="#1E3A8A" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="grid grid-3" style="gap:1rem;">
+            <div class="ring-wrap">
+              <div class="ring">
+                <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"/><circle class="meter" cx="60" cy="60" r="50" data-pct="82"/></svg>
+                <span class="ring-num">82%</span>
+              </div>
+              <p>Cart-to-checkout rate</p>
+            </div>
+            <div class="ring-wrap">
+              <div class="ring">
+                <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"/><circle class="meter" cx="60" cy="60" r="50" data-pct="67"/></svg>
+                <span class="ring-num">67%</span>
+              </div>
+              <p>Mobile app shoppers</p>
+            </div>
+            <div class="ring-wrap">
+              <div class="ring">
+                <svg viewBox="0 0 120 120"><circle class="track" cx="60" cy="60" r="50"/><circle class="meter" cx="60" cy="60" r="50" data-pct="54"/></svg>
+                <span class="ring-num">54%</span>
+              </div>
+              <p>Buy from recommendations</p>
+            </div>
+          </div>
+          <div style="margin-top:1.6rem;">
+            <div class="bar-row"><span class="bar-label">Wishlist users</span><div class="bar-track"><div class="bar-fill" data-width="46"></div></div><span class="bar-value">46%</span></div>
+            <div class="bar-row"><span class="bar-label">Coupon redeemers</span><div class="bar-track"><div class="bar-fill green" data-width="38"></div></div><span class="bar-value">38%</span></div>
+            <div class="bar-row"><span class="bar-label">Review writers</span><div class="bar-track"><div class="bar-fill amber" data-width="21"></div></div><span class="bar-value">21%</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Shopping frequency + purchase timeline -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Shopping frequency</h3>
+            <span class="badge badge-blue">Orders / month</span>
+          </div>
+          <div class="columns" style="height:230px;">
+            <div class="col"><div class="col-bar" data-height="34"><span class="tip">16.4k customers</span></div><span>1×</span></div>
+            <div class="col"><div class="col-bar" data-height="58"><span class="tip">27.9k customers</span></div><span>2–3×</span></div>
+            <div class="col"><div class="col-bar" data-height="100"><span class="tip">48.1k orders wk.</span></div><span>Weekly</span></div>
+            <div class="col"><div class="col-bar" data-height="41"><span class="tip">19.7k customers</span></div><span>Bi-weekly</span></div>
+            <div class="col"><div class="col-bar" data-height="22"><span class="tip">10.6k customers</span></div><span>Rarely</span></div>
+          </div>
+          <p class="text-muted" style="font-size:0.84rem;margin-top:1rem;">Weekly grocery-style restocking dominates — a pattern borrowed directly from the Instacart dataset.</p>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Purchase timeline</h3>
+            <span class="badge badge-blue">A typical loyal customer</span>
+          </div>
+          <ul class="timeline">
+            <li><time>Day 0</time><strong>First visit &amp; signup</strong><span>Arrives via a search ad, browses 12 products, creates an account.</span></li>
+            <li><time>Day 2</time><strong>First purchase</strong><span>Buys a starter basket of groceries worth $32 after an email nudge.</span></li>
+            <li><time>Day 9</time><strong>First repeat order</strong><span>Reorders staples; adds one recommended item from the basket engine.</span></li>
+            <li><time>Day 30</time><strong>Habit formed</strong><span>Settles into a weekly order rhythm with an AOV of $86.</span></li>
+            <li><time>Day 90</time><strong>Loyal champion</strong><span>Joins the loyalty tier; lifetime value crosses the $1,000 mark.</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Geography + monthly active line -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Geographical distribution</h3>
+            <span class="badge badge-blue">Top regions</span>
+          </div>
+          <div class="bar-row"><span class="bar-label">United Kingdom</span><div class="bar-track"><div class="bar-fill" data-width="92"></div></div><span class="bar-value">31%</span></div>
+          <div class="bar-row"><span class="bar-label">India</span><div class="bar-track"><div class="bar-fill" data-width="74"></div></div><span class="bar-value">24%</span></div>
+          <div class="bar-row"><span class="bar-label">United States</span><div class="bar-track"><div class="bar-fill" data-width="55"></div></div><span class="bar-value">18%</span></div>
+          <div class="bar-row"><span class="bar-label">Germany</span><div class="bar-track"><div class="bar-fill green" data-width="34"></div></div><span class="bar-value">11%</span></div>
+          <div class="bar-row"><span class="bar-label">France</span><div class="bar-track"><div class="bar-fill green" data-width="25"></div></div><span class="bar-value">8%</span></div>
+          <div class="bar-row"><span class="bar-label">Rest of world</span><div class="bar-track"><div class="bar-fill amber" data-width="19"></div></div><span class="bar-value">8%</span></div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Monthly active customers</h3>
+            <span class="badge badge-green"><i class="fa-solid fa-arrow-trend-up"></i> +21% YoY</span>
+          </div>
+          <svg class="chart-svg" viewBox="0 0 460 220" role="img" aria-label="Monthly active customers line chart">
+            <defs>
+              <linearGradient id="macArea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25" />
+                <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <line class="grid-line" x1="30" y1="40" x2="450" y2="40" /><text class="axis-label" x="0" y="44">40k</text>
+            <line class="grid-line" x1="30" y1="90" x2="450" y2="90" /><text class="axis-label" x="0" y="94">30k</text>
+            <line class="grid-line" x1="30" y1="140" x2="450" y2="140" /><text class="axis-label" x="0" y="144">20k</text>
+            <line class="grid-line" x1="30" y1="190" x2="450" y2="190" /><text class="axis-label" x="0" y="194">10k</text>
+            <path fill="url(#macArea)" d="M40,168 L108,150 L176,158 L244,118 L312,126 L380,84 L446,52 L446,220 L40,220 Z" />
+            <path class="line-path" d="M40,168 L108,150 L176,158 L244,118 L312,126 L380,84 L446,52" />
+            <circle class="dot" cx="446" cy="52" r="5" />
+            <text class="axis-label" x="36" y="212">Jan</text>
+            <text class="axis-label" x="104" y="212">Mar</text>
+            <text class="axis-label" x="172" y="212">May</text>
+            <text class="axis-label" x="240" y="212">Jul</text>
+            <text class="axis-label" x="308" y="212">Sep</text>
+            <text class="axis-label" x="376" y="212">Nov</text>
+            <text class="axis-label" x="435" y="212">Dec</text>
+          </svg>
+        </article>
+      </div>
+    </section>
+
+    <!-- Recent customers table -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Live sample</span>
+          <h2>Recent customers</h2>
+          <p>The latest simulated signups and their first-order behaviour.</p>
+        </div>
+        <div class="table-wrap" data-aos="fade-up">
+          <table>
+            <thead>
+              <tr><th>Customer</th><th>Country</th><th>Segment</th><th>Orders</th><th>Lifetime Value</th><th>Last Purchase</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="cell-user"><span class="avatar">AS</span><div><strong>Aarav Sharma</strong><br /><small class="text-muted">CUST-10482</small></div></div></td>
+                <td>India</td><td><span class="badge badge-blue">Loyal champion</span></td>
+                <td class="mono">42</td><td class="mono">$3,640</td><td>2 hours ago</td>
+              </tr>
+              <tr>
+                <td><div class="cell-user"><span class="avatar alt">EM</span><div><strong>Emily Morgan</strong><br /><small class="text-muted">CUST-10479</small></div></div></td>
+                <td>United Kingdom</td><td><span class="badge badge-green">Regular buyer</span></td>
+                <td class="mono">17</td><td class="mono">$1,480</td><td>5 hours ago</td>
+              </tr>
+              <tr>
+                <td><div class="cell-user"><span class="avatar alt2">LT</span><div><strong>Lucas Tanaka</strong><br /><small class="text-muted">CUST-10475</small></div></div></td>
+                <td>United States</td><td><span class="badge badge-green">Regular buyer</span></td>
+                <td class="mono">11</td><td class="mono">$960</td><td>Yesterday</td>
+              </tr>
+              <tr>
+                <td><div class="cell-user"><span class="avatar">PK</span><div><strong>Priya Kulkarni</strong><br /><small class="text-muted">CUST-10471</small></div></div></td>
+                <td>India</td><td><span class="badge badge-amber">Occasional</span></td>
+                <td class="mono">4</td><td class="mono">$310</td><td>2 days ago</td>
+              </tr>
+              <tr>
+                <td><div class="cell-user"><span class="avatar alt">HW</span><div><strong>Hannah Weber</strong><br /><small class="text-muted">CUST-10468</small></div></div></td>
+                <td>Germany</td><td><span class="badge badge-blue">Loyal champion</span></td>
+                <td class="mono">29</td><td class="mono">$2,720</td><td>3 days ago</td>
+              </tr>
+              <tr>
+                <td><div class="cell-user"><span class="avatar alt2">CB</span><div><strong>Chloé Bernard</strong><br /><small class="text-muted">CUST-10464</small></div></div></td>
+                <td>France</td><td><span class="badge badge-red">At-risk</span></td>
+                <td class="mono">2</td><td class="mono">$140</td><td>3 weeks ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:1rem;">
+          <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+          <span>Cartalytics<small>E-Commerce Customer Analytics</small></span>
+        </a>
+        <p>Cartalytics turns raw retail transactions into clear, actionable intelligence — customer analytics, product performance and Market Basket insights in a single dashboard.</p>
+        <div class="socials">
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="customers.html">Customer Analytics</a></li>
+          <li><a href="products.html">Best-Selling Products</a></li>
+          <li><a href="basket-analysis.html">Market Basket Analysis</a></li>
+          <li><a href="insights.html">Business Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="index.html">Cartalytics</a> BY : Umar Ahmed Siddiqui, Amaan Maniyar</li>
+          <li><i class="fa-solid fa-building-columns"></i> Dept. of Computer Science Engineering</li>
+          <li><i class="fa-solid fa-school"></i> MGMU SOET</li>
+          <li><a href="about.html">About the dataset</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Cartalytics · E-Commerce Customer Analytics Dashboard</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

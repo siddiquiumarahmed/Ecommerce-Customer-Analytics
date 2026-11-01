@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Basket Analysis — Cartalytics</title>
+  <meta name="description" content="Market Basket Analysis explained simply: frequently bought together pairs, association rules, support, confidence and lift." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    try { document.documentElement.setAttribute("data-theme", localStorage.getItem("eca-theme") || "light"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-logo"><i class="fa-solid fa-chart-pie"></i></div>
+    <div class="loader-bar"><span></span></div>
+    <p>Loading analytics</p>
+  </div>
+
+  <div class="bg-orbs" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+        <span>Cartalytics<small>Big Data Analytics</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="customers.html">Customers</a>
+        <a href="products.html">Products</a>
+        <a href="basket-analysis.html" class="active">Market Basket</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- What is MBA -->
+    <section class="section" style="padding-bottom:2rem;">
+      <div class="container">
+        <span class="eyebrow">Module 03</span>
+        <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:0.6rem;">What is Market Basket Analysis?</h1>
+        <p class="text-muted" style="max-width:720px;">
+          Market Basket Analysis studies millions of shopping carts to answer one simple question:
+          <strong style="color:var(--text);">"When a customer buys product A, what else do they usually buy?"</strong>
+          Supermarkets used it to place bread near butter; e-commerce companies use it to power
+          "Frequently Bought Together" and recommendation engines. It works by mining
+          <em>association rules</em> from transaction data using algorithms like Apriori.
+        </p>
+      </div>
+    </section>
+
+    <!-- Association rule metrics -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">The three key metrics</span>
+          <h2>How a rule is measured</h2>
+          <p>Every rule like "Milk → Bread" is scored on three numbers before it's trusted.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card rule-metric" data-aos="fade-up">
+            <span class="icon-chip"><i class="fa-solid fa-percent"></i></span>
+            <h3>Support</h3>
+            <p>How often the pair appears together in <strong>all</strong> baskets. A support of 12% means 12 out of every 100 orders contain both items.</p>
+            <p class="mono" style="margin-top:0.9rem;color:var(--primary);font-size:0.82rem;">Support = P(A ∩ B)</p>
+          </article>
+          <article class="card rule-metric" data-aos="fade-up" data-aos-delay="100">
+            <span class="icon-chip green"><i class="fa-solid fa-bullseye"></i></span>
+            <h3>Confidence</h3>
+            <p>Of the baskets that contain A, how many also contain B. A confidence of 68% means milk buyers pick up bread 68% of the time.</p>
+            <p class="mono" style="margin-top:0.9rem;color:var(--success);font-size:0.82rem;">Confidence = P(B | A)</p>
+          </article>
+          <article class="card rule-metric" data-aos="fade-up" data-aos-delay="200">
+            <span class="icon-chip amber"><i class="fa-solid fa-arrow-up-right-dots"></i></span>
+            <h3>Lift</h3>
+            <p>How much more likely B is bought <strong>because of</strong> A, versus by chance. Lift above 1 means a genuine relationship, not coincidence.</p>
+            <p class="mono" style="margin-top:0.9rem;color:var(--warning);font-size:0.82rem;">Lift = Confidence ÷ P(B)</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently bought together -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Discovered rules</span>
+          <h2>Frequently bought together</h2>
+          <p>The strongest pairs mined from the simulated transaction log, ranked by lift.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card" data-aos="fade-up">
+            <div class="pair-card">
+              <div class="pair-item"><i class="fa-solid fa-laptop"></i><span>Laptop</span></div>
+              <span class="pair-plus"><i class="fa-solid fa-plus"></i></span>
+              <div class="pair-item"><i class="fa-solid fa-computer-mouse"></i><span>Mouse</span></div>
+            </div>
+            <div class="pair-stats">
+              <span class="badge badge-blue">Support 4.2%</span>
+              <span class="badge badge-green">Confidence 72%</span>
+              <span class="badge badge-amber">Lift 5.8×</span>
+            </div>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="60">
+            <div class="pair-card">
+              <div class="pair-item"><i class="fa-solid fa-mobile-screen"></i><span>Phone</span></div>
+              <span class="pair-plus"><i class="fa-solid fa-plus"></i></span>
+              <div class="pair-item"><i class="fa-solid fa-headphones"></i><span>Earphones</span></div>
+            </div>
+            <div class="pair-stats">
+              <span class="badge badge-blue">Support 5.1%</span>
+              <span class="badge badge-green">Confidence 66%</span>
+              <span class="badge badge-amber">Lift 4.9×</span>
+            </div>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="120">
+            <div class="pair-card">
+              <div class="pair-item"><i class="fa-solid fa-mug-saucer"></i><span>Coffee</span></div>
+              <span class="pair-plus"><i class="fa-solid fa-plus"></i></span>
+              <div class="pair-item"><i class="fa-solid fa-cookie"></i><span>Biscuits</span></div>
+            </div>
+            <div class="pair-stats">
+              <span class="badge badge-blue">Support 7.9%</span>
+              <span class="badge badge-green">Confidence 54%</span>
+              <span class="badge badge-amber">Lift 2.9×</span>
+            </div>
+          </article>
+          <article class="card" data-aos="fade-up">
+            <div class="pair-card">
+              <div class="pair-item"><i class="fa-solid fa-mug-hot"></i><span>Tea</span></div>
+              <span class="pair-plus"><i class="fa-solid fa-plus"></i></span>
+              <div class="pair-item"><i class="fa-solid fa-cubes-stacked"></i><span>Sugar</span></div>
+            </div>
+            <div class="pair-stats">
+              <span class="badge badge-blue">Support 8.6%</span>
+              <span class="badge badge-green">Confidence 57%</span>
+              <span class="badge badge-amber">Lift 2.7×</span>
+            </div>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="60">
+            <div class="pair-card">
+              <div class="pair-item"><i class="fa-solid fa-bottle-water"></i><span>Milk</span></div>
+              <span class="pair-plus"><i class="fa-solid fa-plus"></i></span>
+              <div class="pair-item"><i class="fa-solid fa-bread-slice"></i><span>Bread</span></div>
+            </div>
+            <div class="pair-stats">
+              <span class="badge badge-blue">Support 12.4%</span>
+              <span class="badge badge-green">Confidence 68%</span>
+              <span class="badge badge-amber">Lift 2.4×</span>
+            </div>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="120">
+            <div class="pair-card">
+              <div class="pair-item"><i class="fa-solid fa-bread-slice"></i><span>Bread</span></div>
+              <span class="pair-plus"><i class="fa-solid fa-plus"></i></span>
+              <div class="pair-item"><i class="fa-solid fa-cheese"></i><span>Butter</span></div>
+            </div>
+            <div class="pair-stats">
+              <span class="badge badge-blue">Support 10.8%</span>
+              <span class="badge badge-green">Confidence 61%</span>
+              <span class="badge badge-amber">Lift 2.1×</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive recommendation engine -->
+    <section class="section" style="padding-top:0;">
+      <div class="container grid grid-2">
+        <article class="card" data-aos="fade-up">
+          <div class="card-head">
+            <h3>Try the recommendation engine</h3>
+            <span class="badge badge-blue"><i class="fa-solid fa-hand-pointer"></i> Interactive</span>
+          </div>
+          <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1.2rem;">Pick a product a customer just added to their cart. The engine looks up the strongest association rule and suggests the best pairing.</p>
+          <div class="picker">
+            <button class="chip" data-item="Milk"><i class="fa-solid fa-bottle-water"></i> Milk</button>
+            <button class="chip" data-item="Bread"><i class="fa-solid fa-bread-slice"></i> Bread</button>
+            <button class="chip" data-item="Tea"><i class="fa-solid fa-mug-hot"></i> Tea</button>
+            <button class="chip" data-item="Coffee"><i class="fa-solid fa-mug-saucer"></i> Coffee</button>
+            <button class="chip" data-item="Laptop"><i class="fa-solid fa-laptop"></i> Laptop</button>
+            <button class="chip" data-item="Phone"><i class="fa-solid fa-mobile-screen"></i> Phone</button>
+          </div>
+          <div class="reco-panel" id="recoPanel" style="display:none;"></div>
+        </article>
+
+        <article class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-head">
+            <h3>Product relationship network</h3>
+            <span class="badge badge-blue">Graph view</span>
+          </div>
+          <svg class="network-svg" viewBox="0 0 460 300" role="img" aria-label="Network graph of related products">
+            <line class="edge" x1="230" y1="150" x2="90" y2="60" stroke-width="4" />
+            <line class="edge" x1="230" y1="150" x2="370" y2="60" stroke-width="3" />
+            <line class="edge" x1="230" y1="150" x2="60" y2="210" stroke-width="5" />
+            <line class="edge" x1="230" y1="150" x2="400" y2="220" stroke-width="2" />
+            <line class="edge" x1="230" y1="150" x2="230" y2="268" stroke-width="3" />
+            <line class="edge" x1="90" y1="60" x2="60" y2="210" stroke-width="2" />
+            <circle class="node hub" cx="230" cy="150" r="30" />
+            <text x="230" y="154" text-anchor="middle" fill="#fff" font-weight="700">Bread</text>
+            <circle class="node" cx="90" cy="60" r="24" /><text x="90" y="64" text-anchor="middle">Milk</text>
+            <circle class="node" cx="370" cy="60" r="24" /><text x="370" y="64" text-anchor="middle">Eggs</text>
+            <circle class="node" cx="60" cy="210" r="24" /><text x="60" y="214" text-anchor="middle">Butter</text>
+            <circle class="node" cx="400" cy="220" r="24" /><text x="400" y="224" text-anchor="middle">Jam</text>
+            <circle class="node" cx="230" cy="268" r="24" /><text x="230" y="272" text-anchor="middle">Cheese</text>
+          </svg>
+          <p class="text-muted" style="font-size:0.83rem;margin-top:0.8rem;">Thicker lines mean stronger co-purchase relationships. Bread sits at the centre of the grocery network — the classic "anchor product".</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bundle suggestions -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-head" data-aos="fade-up">
+          <span class="eyebrow">Acting on the rules</span>
+          <h2>Bundle suggestions</h2>
+          <p>How the discovered rules translate into offers a store could launch tomorrow.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card" data-aos="fade-up">
+            <span class="icon-chip navy" style="margin-bottom:1rem;"><i class="fa-solid fa-mug-hot"></i></span>
+            <h3>Breakfast Bundle</h3>
+            <p>Milk + Bread + Butter at 8% off. Targets the highest-support grocery trio to raise average basket size.</p>
+            <span class="badge badge-green" style="margin-top:1rem;">Projected AOV +11%</span>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="80">
+            <span class="icon-chip navy" style="margin-bottom:1rem;"><i class="fa-solid fa-laptop"></i></span>
+            <h3>Workspace Bundle</h3>
+            <p>Laptop + Mouse + Earbuds as a checkout add-on. Rides the 5.8× lift between laptops and accessories.</p>
+            <span class="badge badge-green" style="margin-top:1rem;">Projected attach +19%</span>
+          </article>
+          <article class="card" data-aos="fade-up" data-aos-delay="160">
+            <span class="icon-chip navy" style="margin-bottom:1rem;"><i class="fa-solid fa-mug-saucer"></i></span>
+            <h3>Chai-Time Bundle</h3>
+            <p>Tea + Sugar + Biscuits promoted on weekday evenings, when snack-basket orders peak in the data.</p>
+            <span class="badge badge-green" style="margin-top:1rem;">Projected units +14%</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:1rem;">
+          <span class="brand-mark"><i class="fa-solid fa-chart-pie"></i></span>
+          <span>Cartalytics<small>E-Commerce Customer Analytics</small></span>
+        </a>
+        <p>Cartalytics turns raw retail transactions into clear, actionable intelligence — customer analytics, product performance and Market Basket insights in a single dashboard.</p>
+        <div class="socials">
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="customers.html">Customer Analytics</a></li>
+          <li><a href="products.html">Best-Selling Products</a></li>
+          <li><a href="basket-analysis.html">Market Basket Analysis</a></li>
+          <li><a href="insights.html">Business Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="index.html">Cartalytics</a> BY : Umar Ahmed Siddiqui, Amaan Maniyar</li>
+          <li><i class="fa-solid fa-building-columns"></i> Dept. of Computer Science Engineering</li>
+          <li><i class="fa-solid fa-school"></i> MGMU SOET</li>
+          <li><a href="about.html">About the dataset</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Cartalytics · E-Commerce Customer Analytics Dashboard</div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
